@@ -1,4 +1,3 @@
-import { Col, Row } from "antd";
 import React from "react";
 import colors from "../../styles/colors";
 import noreports from "../../assets/noreports.svg";

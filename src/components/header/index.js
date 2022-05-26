@@ -10,6 +10,8 @@ import Text from "../text";
 
 const styles = createUseStyles({
   avatar: { fontWeight: 700, fontSize: 23, borderRadius: 5 },
+  root: { padding: "21px 35px", height: 80, borderBottom: "2px solid #F3F6F9" },
+  name: { display: "flex", justifyContent: "center", alignItems: "center" },
 });
 
 function Header() {
@@ -23,15 +25,7 @@ function Header() {
   }, []);
 
   return (
-    <Row
-      style={{
-        padding: "21px 35px",
-        height: 80,
-        borderBottom: "2px solid #F3F6F9",
-      }}
-      align="center"
-      justify="space-between"
-    >
+    <Row className={classes.root} align="center" justify="space-between">
       <Col>
         <img src={logo} width={26.67} height={40} alt="logo" />
         <img
@@ -43,26 +37,7 @@ function Header() {
         />
       </Col>
       <Col>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          {/* <div
-            style={{
-              width: 43,
-              height: 43,
-              borderRadius: 5,
-              background: "#F6CA65",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text variant="heading-2">JD</Text>
-          </div> */}
+        <div className={classes.name}>
           <Avatar
             name={user?.firstName + " " + user?.lastName}
             size={43}

@@ -91,7 +91,6 @@ const ProjectTable = ({
             color: randomColor,
           };
 
-          console.log(insert.color, "COlor in chart");
           data.push(insert);
         });
     }
@@ -101,7 +100,7 @@ const ProjectTable = ({
 
   useEffect(() => {
     getPieChartData();
-  });
+  }, []);
 
   return (
     <Row gutter={[32, 16]} style={{ marginTop: 27 }}>
@@ -307,7 +306,7 @@ const ProjectTable = ({
                 {data &&
                   data.map((item) => {
                     return (
-                      <Col>
+                      <Col key={item.title}>
                         <Row align="middle" gutter={8}>
                           <Col>
                             <div

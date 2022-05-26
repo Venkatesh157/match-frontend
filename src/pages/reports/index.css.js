@@ -21,6 +21,9 @@ const styles = createUseStyles({
     background: colors.blue.shade1,
     color: "#fff",
     borderRadius: 5,
+    "& .ant-btn-primary:hover, .ant-btn-primary:focus": {
+      background: `${colors.blue.shade1} !important`,
+    },
   },
 });
 
