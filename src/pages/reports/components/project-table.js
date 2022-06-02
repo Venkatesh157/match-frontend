@@ -4,6 +4,8 @@ import colors from "../../../styles/colors";
 import { PieChart } from "react-minimal-pie-chart";
 import styles from "./project-table.css";
 import Text from "../../../components/text";
+import moment from "moment";
+import { FundTwoTone } from "@ant-design/icons";
 
 const { Panel } = Collapse;
 
@@ -102,6 +104,13 @@ const ProjectTable = ({
     getPieChartData();
   }, []);
 
+  const key = Object.keys(details);
+  key.forEach((ele) => {
+    details[ele].sort(function (a, b) {
+      return new Date(a.created) - new Date(b.created);
+    });
+  });
+
   return (
     <Row gutter={[32, 16]} style={{ marginTop: 27 }}>
       <Col
@@ -175,7 +184,9 @@ const ProjectTable = ({
                               <Row align="middle" justify="space-between">
                                 <Col>
                                   <Text variant="bodyText-m">
-                                    {detail.created}
+                                    {moment(detail.created).format(
+                                      "DD-MM-yyyy"
+                                    )}
                                   </Text>
                                 </Col>
                                 {!values.gatewayId && (
